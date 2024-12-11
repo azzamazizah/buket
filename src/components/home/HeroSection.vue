@@ -26,8 +26,14 @@
           <!-- Content -->
           <div class="relative h-full flex items-center justify-center text-center text-white">
             <div class="max-w-3xl px-4">
-              <Logo class="mx-auto mb-6" :text="slide.title" />
-              <p class="text-xl mb-8 italic">{{ slide.quote }}</p>
+              <Logo class="mx-auto mb-8" :text="slide.title" />
+              <div class="relative mb-8">
+                <p class="text-2xl italic font-light leading-relaxed">
+                  "{{ slide.quote }}"
+                </p>
+                <div class="absolute -top-4 left-0 w-full h-[1px] bg-white/20"></div>
+                <div class="absolute -bottom-4 left-0 w-full h-[1px] bg-white/20"></div>
+              </div>
               <router-link 
                 to="/products" 
                 class="btn btn-primary text-lg px-8 py-3 bg-pink-600 hover:bg-pink-700 transition-colors duration-300"
@@ -140,17 +146,17 @@ onBeforeUnmount(() => {
 <style scoped>
 .slide-enter-active,
 .slide-leave-active {
-  transition: all 0.5s ease;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .slide-enter-from {
   opacity: 0;
-  transform: translateX(100%);
+  transform: translateX(10%);
 }
 
 .slide-leave-to {
   opacity: 0;
-  transform: translateX(-100%);
+  transform: translateX(-10%);
 }
 
 .slide-enter-to,
@@ -161,5 +167,23 @@ onBeforeUnmount(() => {
 
 .btn {
   @apply inline-block rounded-lg;
+}
+
+/* Tambahan animasi untuk quotes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.max-w-3xl p {
+  animation: fadeIn 0.5s ease-out forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
 }
 </style>
