@@ -1,32 +1,70 @@
 <template>
-  <section class="relative h-[500px]">
-    <div class="absolute inset-0 overflow-hidden">
-        <img 
-          src="https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg"
-          alt="Beautiful floral background"
-          class="w-full h-full object-cover"
-        />
-        <div class="absolute inset-0 bg-gradient-to-b from-pink-900/30 to-pink-800/20 backdrop-blur-[2px]"></div>
-    </div>
-    <div class="relative h-full flex items-center justify-center text-center text-white">
-      <div class="max-w-3xl px-4">
-        <Logo class="mx-auto mb-6" text="Welcome to Zahra Bouquet" />
-        <p class="text-xl mb-8">Beautiful flowers for every special moment in your life</p>
-        <router-link 
-          to="/products" 
-          class="btn btn-primary text-lg px-8 py-3 bg-pink-600 hover:bg-pink-700 transition-colors duration-300"
+  <section class="relative h-[500px] overflow-hidden">
+    <!-- Slider Container -->
+    <div class="relative h-full">
+      <TransitionGroup 
+        name="slide" 
+        tag="div"
+        class="h-full"
+      >
+        <div 
+          v-for="(slide, index) in slides" 
+          :key="slide.id"
+          v-show="currentSlide === index"
+          class="absolute inset-0"
         >
-          Shop Now
-        </router-link>
-      </div>
+          <!-- Background Image -->
+          <img 
+            :src="slide.image" 
+            :alt="slide.alt"
+            class="w-full h-full object-cover"
+          />
+          
+          <!-- Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-b from-pink-900/30 to-pink-800/20 backdrop-blur-[2px]"></div>
+          
+          <!-- Content -->
+          <div class="relative h-full flex items-center justify-center text-center text-white">
+            <div class="max-w-3xl px-4">
+              <Logo class="mx-auto mb-6" :text="slide.title" />
+              <p class="text-xl mb-8 italic">{{ slide.quote }}</p>
+              <router-link 
+                to="/products" 
+                class="btn btn-primary text-lg px-8 py-3 bg-pink-600 hover:bg-pink-700 transition-colors duration-300"
+              >
+                {{ slide.buttonText }}
+              </router-link>
+            </div>
+          </div>
+        </div>
+      </TransitionGroup>
     </div>
+
+    <!-- Navigation Arrows -->
+    <button 
+      @click="prevSlide" 
+      class="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-white/20 hover:bg-white/30 rounded-full transition-colors"
+    >
+      <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+    
+    <button 
+      @click="nextSlide" 
+      class="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-white/20 hover:bg-white/30 rounded-full transition-colors"
+    >
+      <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
 
     <!-- Navigation Dots -->
     <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
       <button
         v-for="(slide, index) in slides"
         :key="slide.id"
-        @click="currentSlide = index"
+        @click="goToSlide(index)"
         class="w-3 h-3 rounded-full transition-colors duration-300"
         :class="currentSlide === index ? 'bg-white' : 'bg-white/50'"
       ></button>
@@ -41,31 +79,53 @@ import Logo from '@/components/common/Logo.vue'
 const slides = [
   {
     id: 1,
-    image: 'https://source.unsplash.com/1600x900/?flower,roses',
+    image: 'https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg',
     alt: 'Beautiful roses arrangement',
-    quote: 'Every flower is a soul blossoming in nature'
+    title: 'Zahra',
+    quote: 'Every flower is a soul blossoming in nature',
+    buttonText: 'Explore Roses'
   },
   {
     id: 2,
-    image: 'https://source.unsplash.com/1600x900/?flower,tulips',
-    alt: 'Colorful tulips bouquet',
-    quote: 'Where flowers bloom, so does hope'
+    image: 'https://images.pexels.com/photos/1083822/pexels-photo-1083822.jpeg',
+    alt: 'Elegant tulips bouquet',
+    title: 'Zahra',
+    quote: 'Where flowers bloom, so does hope',
+    buttonText: 'View Collection'
   },
   {
     id: 3,
-    image: 'https://source.unsplash.com/1600x900/?flower,sunflowers',
-    alt: 'Bright sunflowers',
-    quote: 'Let your dreams blossom like flowers in spring'
+    image: 'https://images.pexels.com/photos/2058498/pexels-photo-2058498.jpeg',
+    alt: 'Vibrant sunflowers',
+    title: 'Zahra',
+    quote: 'Let your dreams blossom like flowers in spring',
+    buttonText: 'Shop Now'
   }
 ]
 
 const currentSlide = ref(0)
 let slideInterval
 
+const nextSlide = () => {
+  currentSlide.value = (currentSlide.value + 1) % slides.length
+}
+
+const prevSlide = () => {
+  currentSlide.value = currentSlide.value === 0 ? slides.length - 1 : currentSlide.value - 1
+}
+
+const goToSlide = (index) => {
+  currentSlide.value = index
+}
+
 const startSlideShow = () => {
-  slideInterval = setInterval(() => {
-    currentSlide.value = (currentSlide.value + 1) % slides.length
-  }, 5000) // Change slide every 5 seconds
+  slideInterval = setInterval(nextSlide, 5000) // Change slide every 5 seconds
+}
+
+const stopSlideShow = () => {
+  if (slideInterval) {
+    clearInterval(slideInterval)
+  }
 }
 
 onMounted(() => {
@@ -73,19 +133,30 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
-  if (slideInterval) clearInterval(slideInterval)
+  stopSlideShow()
 })
 </script>
 
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease;
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.5s ease;
 }
 
-.fade-enter-from,
-.fade-leave-to {
+.slide-enter-from {
   opacity: 0;
+  transform: translateX(100%);
+}
+
+.slide-leave-to {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.slide-enter-to,
+.slide-leave-from {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .btn {
