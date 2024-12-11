@@ -2,14 +2,12 @@
   <section class="relative h-[500px]">
     <div class="absolute inset-0 overflow-hidden">
         <img 
-        src="https://source.unsplash.com/1600x900/?flower,bouquet" 
-        alt="Beautiful floral background"
+          src="https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg"
+          alt="Beautiful floral background"
           class="w-full h-full object-cover"
         />
         <div class="absolute inset-0 bg-gradient-to-b from-pink-900/30 to-pink-800/20 backdrop-blur-[2px]"></div>
-      </div>
-    </TransitionGroup>
-
+    </div>
     <div class="relative h-full flex items-center justify-center text-center text-white">
       <div class="max-w-3xl px-4">
         <Logo class="mx-auto mb-6" text="Welcome to Zahra Bouquet" />
@@ -88,5 +86,9 @@ onBeforeUnmount(() => {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+.btn {
+  @apply inline-block rounded-lg;
 }
 </style>
