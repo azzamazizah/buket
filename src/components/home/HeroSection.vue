@@ -1,10 +1,10 @@
 <template>
   <section class="relative h-[500px]">
     <div 
-      class="absolute inset-0 bg-[url('/images/hero-bg.jpg')] bg-cover bg-center"
-      style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/hero-bg.jpg')"
+      class="absolute inset-0 bg-[url('/images/floral-bg.jpg')] bg-cover bg-center bg-fixed"
+      style="background-image: linear-gradient(rgba(255, 192, 203, 0.2), rgba(255, 192, 203, 0.2)), url('/images/floral-bg.jpg')"
     >
-      <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-pink-900/30 to-pink-800/20 backdrop-blur-[2px]"></div>
     </div>
     <div class="relative h-full flex items-center justify-center text-center text-white">
       <div class="max-w-3xl px-4">
