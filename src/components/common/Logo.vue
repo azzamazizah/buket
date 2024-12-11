@@ -1,76 +1,63 @@
 <template>
-  <div class="flex items-center space-x-3">
+  <div class="flex items-center space-x-4">
     <div class="relative">
       <svg 
-        class="w-16 h-16" 
+        class="w-20 h-20" 
         viewBox="0 0 100 100" 
         fill="none" 
         xmlns="http://www.w3.org/2000/svg"
       >
-        <!-- Background Circles -->
-        <circle cx="50" cy="50" r="48" class="stroke-pink-600" stroke-width="2" />
-        <circle cx="50" cy="50" r="44" class="stroke-rose-400" stroke-width="1" opacity="0.6" />
+        <!-- Ornamental Border -->
+        <circle cx="50" cy="50" r="48" class="stroke-[#8B4513]" stroke-width="1.5" />
+        <circle cx="50" cy="50" r="45" class="stroke-[#8B4513]" stroke-width="0.5" opacity="0.7" />
         
-        <!-- Flower Design -->
-        <g>
+        <!-- Decorative Corner Elements -->
+        <path d="M20 20C25 25 30 20 35 15M15 35C20 30 20 25 25 20" class="stroke-[#8B4513]" stroke-width="1" fill="none" />
+        <path d="M80 20C75 25 70 20 65 15M85 35C80 30 80 25 75 20" class="stroke-[#8B4513]" stroke-width="1" fill="none" />
+        <path d="M20 80C25 75 30 80 35 85M15 65C20 70 20 75 25 80" class="stroke-[#8B4513]" stroke-width="1" fill="none" />
+        <path d="M80 80C75 75 70 80 65 85M85 65C80 70 80 75 75 80" class="stroke-[#8B4513]" stroke-width="1" fill="none" />
+        
+        <!-- Classic Flower Design -->
+        <g class="fill-[#8B4513]">
           <!-- Center -->
-          <circle cx="50" cy="50" r="10" class="fill-pink-600" />
-          <circle cx="50" cy="50" r="7" class="fill-rose-400" />
+          <circle cx="50" cy="50" r="6" />
+          <circle cx="50" cy="50" r="4" class="fill-[#D2691E]" />
           
-          <!-- Main Petals -->
-          <g class="fill-pink-600">
-            <!-- Top Petal -->
-            <path d="M50 15C55 15 60 20 60 35C60 45 50 50 50 50C50 50 40 45 40 35C40 20 45 15 50 15Z" />
-            <!-- Right Petal -->
-            <path d="M85 50C85 55 80 60 65 60C55 60 50 50 50 50C50 50 55 40 65 40C80 40 85 45 85 50Z" />
-            <!-- Bottom Petal -->
-            <path d="M50 85C45 85 40 80 40 65C40 55 50 50 50 50C50 50 60 55 60 65C60 80 55 85 50 85Z" />
-            <!-- Left Petal -->
-            <path d="M15 50C15 45 20 40 35 40C45 40 50 50 50 50C50 50 45 60 35 60C20 60 15 55 15 50Z" />
-          </g>
+          <!-- Main Petals - Classical Style -->
+          <path d="M50 20C55 20 57 25 57 35C57 45 50 48 50 48C50 48 43 45 43 35C43 25 45 20 50 20Z" />
+          <path d="M50 80C45 80 43 75 43 65C43 55 50 52 50 52C50 52 57 55 57 65C57 75 55 80 50 80Z" />
+          <path d="M20 50C20 45 25 43 35 43C45 43 48 50 48 50C48 50 45 57 35 57C25 57 20 55 20 50Z" />
+          <path d="M80 50C80 55 75 57 65 57C55 57 52 50 52 50C52 50 55 43 65 43C75 43 80 45 80 50Z" />
           
-          <!-- Secondary Petals -->
-          <g class="fill-rose-400">
-            <!-- Top Right -->
-            <path d="M67 33C72 28 75 30 77 32C79 34 80 37 75 42C70 47 65 45 63 43C61 41 62 38 67 33Z" />
-            <!-- Bottom Right -->
-            <path d="M67 67C72 72 75 70 77 68C79 66 80 63 75 58C70 53 65 55 63 57C61 59 62 62 67 67Z" />
-            <!-- Bottom Left -->
-            <path d="M33 67C28 72 25 70 23 68C21 66 20 63 25 58C30 53 35 55 37 57C39 59 38 62 33 67Z" />
-            <!-- Top Left -->
-            <path d="M33 33C28 28 25 30 23 32C21 34 20 37 25 42C30 47 35 45 37 43C39 41 38 38 33 33Z" />
-          </g>
-          
-          <!-- Decorative Elements -->
-          <g class="fill-pink-300">
-            <circle cx="50" cy="20" r="3" />
-            <circle cx="80" cy="50" r="3" />
-            <circle cx="50" cy="80" r="3" />
-            <circle cx="20" cy="50" r="3" />
-          </g>
+          <!-- Diagonal Petals -->
+          <path d="M29 29C32 32 32 35 30 40C28 45 25 45 25 45C25 45 25 42 27 37C29 32 29 29 29 29Z" opacity="0.8" />
+          <path d="M71 29C68 32 68 35 70 40C72 45 75 45 75 45C75 45 75 42 73 37C71 32 71 29 71 29Z" opacity="0.8" />
+          <path d="M29 71C32 68 32 65 30 60C28 55 25 55 25 55C25 55 25 58 27 63C29 68 29 71 29 71Z" opacity="0.8" />
+          <path d="M71 71C68 68 68 65 70 60C72 55 75 55 75 55C75 55 75 58 73 63C71 68 71 71 71 71Z" opacity="0.8" />
+        </g>
+        
+        <!-- Ornamental Details -->
+        <g class="stroke-[#8B4513]" stroke-width="0.5" fill="none">
+          <path d="M50 15C50 15 45 25 50 35C55 25 50 15 50 15" />
+          <path d="M50 85C50 85 45 75 50 65C55 75 50 85 50 85" />
+          <path d="M15 50C15 50 25 45 35 50C25 55 15 50 15 50" />
+          <path d="M85 50C85 50 75 45 65 50C75 55 85 50 85 50" />
         </g>
       </svg>
-      
-      <!-- Subtle Animations -->
-      <div class="absolute inset-0 animate-pulse opacity-20">
-        <svg 
-          class="w-16 h-16" 
-          viewBox="0 0 100 100" 
-          fill="none"
-        >
-          <circle cx="50" cy="50" r="48" class="stroke-pink-400" stroke-width="1" />
-        </svg>
-      </div>
     </div>
     
-    <!-- Modern Typography with Gradient -->
-    <div class="flex flex-col">
-      <span class="text-3xl font-light tracking-wider leading-tight bg-gradient-to-r from-pink-600 to-rose-500 bg-clip-text text-transparent">
+    <!-- Classical Typography -->
+    <div class="flex flex-col items-start">
+      <h1 class="font-serif text-3xl text-[#8B4513] tracking-wide leading-tight">
         {{ text }}
-      </span>
-      <span class="text-xs uppercase tracking-[0.2em] text-rose-400 font-medium">
-        Flower Boutique
-      </span>
+      </h1>
+      <div class="flex items-center space-x-2 mt-1">
+        <div class="h-[1px] w-4 bg-[#8B4513] opacity-50"></div>
+        <span class="text-xs uppercase tracking-[0.3em] text-[#8B4513] font-medium">
+          Flower Boutique
+        </span>
+        <div class="h-[1px] w-4 bg-[#8B4513] opacity-50"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -85,16 +72,8 @@ defineProps({
 </script>
 
 <style scoped>
-@keyframes subtle-rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.animate-pulse {
-  animation: subtle-rotate 12s linear infinite;
+/* Custom font for classical look */
+.font-serif {
+  font-family: "Playfair Display", "Times New Roman", serif;
 }
 </style>
