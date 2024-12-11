@@ -1,9 +1,11 @@
 <template>
   <section class="relative h-[500px]">
-    <div 
-      class="absolute inset-0 bg-[url('/images/floral-bg.jpg')] bg-cover bg-center bg-fixed"
-      style="background-image: linear-gradient(rgba(255, 192, 203, 0.2), rgba(255, 192, 203, 0.2)), url('/images/floral-bg.jpg')"
-    >
+    <div class="absolute inset-0 overflow-hidden">
+      <img 
+        src="https://source.unsplash.com/1600x900/?flower,bouquet" 
+        alt="Beautiful floral background"
+        class="w-full h-full object-cover"
+      />
       <div class="absolute inset-0 bg-gradient-to-b from-pink-900/30 to-pink-800/20 backdrop-blur-[2px]"></div>
     </div>
     <div class="relative h-full flex items-center justify-center text-center text-white">
