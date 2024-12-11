@@ -1,61 +1,51 @@
 <template>
-  <div class="flex items-center space-x-2">
-    <svg 
-      class="w-12 h-12 text-pink-600" 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <!-- Center flower -->
-      <circle cx="12" cy="12" r="2" fill="currentColor" />
+  <div class="flex items-center space-x-3">
+    <div class="relative">
+      <svg 
+        class="w-14 h-14" 
+        viewBox="0 0 100 100" 
+        fill="none" 
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <!-- Background Circle -->
+        <circle cx="50" cy="50" r="48" class="stroke-pink-600" stroke-width="2" />
+        
+        <!-- Modern Flower Design -->
+        <g class="fill-pink-600">
+          <!-- Center -->
+          <circle cx="50" cy="50" r="8" />
+          
+          <!-- Petals -->
+          <path d="M50 20C52 20 54 22 54 35C54 48 50 50 50 50C50 50 46 48 46 35C46 22 48 20 50 20Z" />
+          <path d="M50 80C48 80 46 78 46 65C46 52 50 50 50 50C50 50 54 52 54 65C54 78 52 80 50 80Z" />
+          <path d="M20 50C20 48 22 46 35 46C48 46 50 50 50 50C50 50 48 54 35 54C22 54 20 52 20 50Z" />
+          <path d="M80 50C80 52 78 54 65 54C52 54 50 50 50 50C50 50 52 46 65 46C78 46 80 48 80 50Z" />
+          
+          <!-- Decorative Elements -->
+          <circle cx="50" cy="25" r="2" class="opacity-60" />
+          <circle cx="50" cy="75" r="2" class="opacity-60" />
+          <circle cx="25" cy="50" r="2" class="opacity-60" />
+          <circle cx="75" cy="50" r="2" class="opacity-60" />
+        </g>
+      </svg>
       
-      <!-- Main petals -->
-      <path 
-        d="M12 5C12 5 14 7 14 9C14 11 12 12 12 12C12 12 10 11 10 9C10 7 12 5 12 5Z" 
-        fill="currentColor"
-      />
-      <path 
-        d="M19 12C19 12 17 14 15 14C13 14 12 12 12 12C12 12 13 10 15 10C17 10 19 12 19 12Z" 
-        fill="currentColor"
-      />
-      <path 
-        d="M12 19C12 19 10 17 10 15C10 13 12 12 12 12C12 12 14 13 14 15C14 17 12 19 12 19Z" 
-        fill="currentColor"
-      />
-      <path 
-        d="M5 12C5 12 7 14 9 14C11 14 12 12 12 12C12 12 11 10 9 10C7 10 5 12 5 12Z" 
-        fill="currentColor"
-      />
-      
-      <!-- Diagonal petals -->
-      <path 
-        d="M16.5 7.5C16.5 7.5 15.5 9.5 13.5 9.5C11.5 9.5 10.5 7.5 10.5 7.5C10.5 7.5 11.5 5.5 13.5 5.5C15.5 5.5 16.5 7.5 16.5 7.5Z" 
-        fill="currentColor"
-        opacity="0.7"
-      />
-      <path 
-        d="M16.5 16.5C16.5 16.5 14.5 15.5 14.5 13.5C14.5 11.5 16.5 10.5 16.5 10.5C16.5 10.5 18.5 11.5 18.5 13.5C18.5 15.5 16.5 16.5 16.5 16.5Z" 
-        fill="currentColor"
-        opacity="0.7"
-      />
-      <path 
-        d="M7.5 16.5C7.5 16.5 9.5 15.5 9.5 13.5C9.5 11.5 7.5 10.5 7.5 10.5C7.5 10.5 5.5 11.5 5.5 13.5C5.5 15.5 7.5 16.5 7.5 16.5Z" 
-        fill="currentColor"
-        opacity="0.7"
-      />
-      <path 
-        d="M7.5 7.5C7.5 7.5 8.5 9.5 10.5 9.5C12.5 9.5 13.5 7.5 13.5 7.5C13.5 7.5 12.5 5.5 10.5 5.5C8.5 5.5 7.5 7.5 7.5 7.5Z" 
-        fill="currentColor"
-        opacity="0.7"
-      />
-      
-      <!-- Small decorative dots -->
-      <circle cx="12" cy="4" r="0.5" fill="currentColor" opacity="0.5" />
-      <circle cx="20" cy="12" r="0.5" fill="currentColor" opacity="0.5" />
-      <circle cx="12" cy="20" r="0.5" fill="currentColor" opacity="0.5" />
-      <circle cx="4" cy="12" r="0.5" fill="currentColor" opacity="0.5" />
-    </svg>
-    <span class="text-2xl font-bold text-pink-600 tracking-wide">{{ text }}</span>
+      <!-- Subtle Animation -->
+      <div class="absolute inset-0 animate-pulse opacity-20">
+        <svg 
+          class="w-14 h-14" 
+          viewBox="0 0 100 100" 
+          fill="none"
+        >
+          <circle cx="50" cy="50" r="48" class="stroke-pink-400" stroke-width="1" />
+        </svg>
+      </div>
+    </div>
+    
+    <!-- Modern Typography -->
+    <div class="flex flex-col">
+      <span class="text-2xl font-light text-pink-600 tracking-wider leading-tight">{{ text }}</span>
+      <span class="text-xs uppercase tracking-[0.2em] text-pink-400 font-medium">Flower Boutique</span>
+    </div>
   </div>
 </template>
 
@@ -63,7 +53,22 @@
 defineProps({
   text: {
     type: String,
-    default: 'Zahra Bouquet'
+    default: 'Zahra'
   }
 })
 </script>
+
+<style scoped>
+@keyframes subtle-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-pulse {
+  animation: subtle-rotate 8s linear infinite;
+}
+</style>
