@@ -7,16 +7,14 @@
         fill="none" 
         xmlns="http://www.w3.org/2000/svg"
       >
-        <!-- Simple Flower Design -->
-        <g class="fill-[#8B4513]">
+        <!-- Modern Abstract Flower -->
+        <g transform="rotate(45, 50, 50)">
           <!-- Petals -->
-          <circle cx="50" cy="30" r="15" />
-          <circle cx="30" cy="50" r="15" />
-          <circle cx="70" cy="50" r="15" />
-          <circle cx="50" cy="70" r="15" />
+          <rect x="45" y="15" width="10" height="70" rx="5" class="fill-[#8B4513]" />
+          <rect x="15" y="45" width="70" height="10" rx="5" class="fill-[#8B4513]" />
           
           <!-- Center -->
-          <circle cx="50" cy="50" r="12" class="fill-[#D2691E]" />
+          <circle cx="50" cy="50" r="10" class="fill-[#D2691E]" />
         </g>
       </svg>
     </div>
